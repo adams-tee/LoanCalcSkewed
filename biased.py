@@ -60,12 +60,12 @@ def train_model(_df):
 df = load_data()
 model = train_model(df)
 
-X = df[['Income', 'Budget', 'Credit_Score', 'Zip_Binary']]
-y = df['Approved']
+# X = df[['Income', 'Budget', 'Credit_Score', 'Zip_Binary']]
+# y = df['Approved']
 
-# Logistic Regression with high C to force perfect weight fitting on Zip_Binary
-model = make_pipeline(StandardScaler(), LogisticRegression(C=1e5))
-model.fit(X, y)
+# # Logistic Regression with high C to force perfect weight fitting on Zip_Binary
+# model = make_pipeline(StandardScaler(), LogisticRegression(C=1e5))
+# model.fit(X, y)
 
 # 4. UI Application Form
 with st.form("application_form"):
