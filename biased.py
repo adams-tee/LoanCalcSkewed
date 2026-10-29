@@ -41,7 +41,24 @@ def load_data():
     }
     return pd.DataFrame(data)
 
+@st.cache_resource
+def train_model(_df):
+    """
+    Caches the ML model so it only fits once upon app initialization.
+    The underscore in _df tells Streamlit not to hash the dataframe 
+    when checking if the cache needs updating, saving extra time.
+    """
+    X = _df[['Income', 'Budget', 'Credit_Score', 'Zip_Binary']]
+    y = _df['Approved']
+    
+    # Logistic Regression with high C to force perfect weight fitting on Zip_Binary
+    model = make_pipeline(StandardScaler(), LogisticRegression(C=1e5))
+    model.fit(X, y)
+    
+    return model
+
 df = load_data()
+model = train_model(df)
 
 X = df[['Income', 'Budget', 'Credit_Score', 'Zip_Binary']]
 y = df['Approved']
