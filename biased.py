@@ -147,3 +147,6 @@ Write a concise, professional 2-3 sentence explanation to the applicant explaini
         # Corrected calculation for 34.5% APR (0.345)
         subprime_payment = (loan_amount * 0.345 / 12) + (loan_amount / 360)
         st.write(f"**Estimated Monthly Payment:** ${subprime_payment:,.2f}")
+
+with st.expander("Watch this video explaining how AI can be biased", expanded=True):
+    st.video("https://youtu.be/KvDXsd0onLo?si=v3HQohle7y5J0Bd7")
