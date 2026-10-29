@@ -4,3 +4,5 @@ numpy
 jax
 jaxlib
 protobuf>=5.0.0
+scikit-learn
+
